@@ -20,23 +20,17 @@ for iter = 1:num_iters
     dJdTheta2=0;
     %J = J + ((theta(1)+theta(2).*X(i,2) - y(i)).^2)./(2*m);
     for i = 1:m
-        U = theta(1)+theta(2)*X(i,2) - y(i);
+        U = theta(1)+theta(2).*X(i,2) - y(i);
         dJdTheta1 = dJdTheta1 + (1/(m))*(U);
-        dJdTheta2 = dJdTheta2 + (1/(m))*(U)*X(i,2);
+        dJdTheta2 = dJdTheta1 + (1/(m))*(U)*X(i,2);
     end
-    
     temp0 = theta(1) - alpha * dJdTheta1;
     temp1 = theta(2) - alpha * dJdTheta2;
     
-    
+    theta(1) = temp0;
+    theta(2) = temp1;
 
-    if (computeCost(X,y,[temp0; temp1]) < computeCost(X,y,theta))
-        theta(1) = temp0;
-        theta(2) = temp1;
-    else
-        iterationstilconverge = iter;
-        iter = num_iters;
-    end
+    
     % ============================================================
 
     % Save the cost J in every iteration    
