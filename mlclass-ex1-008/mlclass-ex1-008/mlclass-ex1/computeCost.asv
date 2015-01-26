@@ -14,13 +14,10 @@ J = 0;
 %               You should set J to the cost.
 
 for i=1:m
-%     hTheta(i) = 0;
-%     for j = 1:length(theta)
-%         hTheta(i) = theta(j)*X(i,j);
-%     end
-%     J = J + (1/(2*m))*((hTheta(i) - y(i)).^2);
-    
-    J = J + ((theta(1)+theta(2).*X(i,2) - y(i)).^2)./(2*m);
+    hTheta = 0;
+    for j = 1:length(theta)
+        hTheta = theta(j)
+   J = J + ((theta(1)+theta(2).*X(i,2) - y(i)).^2)./m;
     
 end
 
