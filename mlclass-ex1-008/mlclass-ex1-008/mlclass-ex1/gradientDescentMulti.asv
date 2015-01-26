@@ -22,11 +22,11 @@ for iter = 1:num_iters
         U = sum(theta.*X(i,:)') - y(i);
         V = 0;
         for j = 1: features
-            V = V+theta(j)*X(i,j);
+            V = V+
+            
         end
-        V = V - y(i);
 %         U = theta(1)+theta(2)*X(i,2) - y(i);
-        dJdTheta = dJdTheta + ((1/(m))*(V))*X(i,:)';
+        dJdTheta = dJdTheta + ((1/(m))*(U))*X(i,:)';
 %         dJdTheta2 = dJdTheta2 + (1/(m))*(U)*X(i,2);
     end
     
@@ -34,14 +34,14 @@ for iter = 1:num_iters
 %     temp0 = theta(1) - alpha * dJdTheta1;
 %     temp1 = theta(2) - alpha * dJdTheta2;
     
-    theta = temp;
+%     theta = temp;
 
-%     if (computeCost(X,y,temp) < computeCost(X,y,theta))
-%         theta = temp;
-%     else
-%         iterationstilconverge = iter;
-%         iter = num_iters;
-%     end
+    if (computeCost(X,y,temp) < computeCost(X,y,theta))
+        theta = temp;
+    else
+        iterationstilconverge = iter;
+        iter = num_iters;
+    end
     % ============================================================
 
     % Save the cost J in every iteration    

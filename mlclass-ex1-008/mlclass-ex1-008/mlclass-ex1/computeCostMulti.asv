@@ -17,10 +17,10 @@ for i=1:m
     innersum = 0;
     for j=1:size(X,2)
         innersum = innersum + theta(j)*X(i,j);
+        
     end
     
-    %J = J + ((sum(theta.*X(i,:)') - y(i)).^2)/(2*m);
-    J = J + ((innersum - y(i))^2)/(2*m);
+    J = J + ((sum(theta.*X(i,:)') - y(i)).^2)/(2*m);
     
 end
 
